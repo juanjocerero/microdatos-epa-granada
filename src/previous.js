@@ -95,3 +95,11 @@ _.forOwn(dataByYear, (data, year) => {
   const s = data.filter(d => d.eciv1 === 4 && (d.edad5 >= 25 && d.edad5 < 50))
   console.log(`${year}: ${((s.length / m.length) * 100).toFixed(2)}%`)
 })
+
+/** Porcentaje de mayores de 40 con estudios secundarios (+FP) */
+console.log('Porcentaje de mayores de 40 con estudios secundarios (+FP)')
+_.forOwn(dataByYear, (data, year) => {
+  const m = data.filter(d => d.edad5 > 35)
+  const fp = data.filter(d => (d.edad5 > 35) && d.nforma2 === 'SP')
+  console.log(`${year}: ${((fp.length / m.length) * 100).toFixed(2)}%`)
+})
