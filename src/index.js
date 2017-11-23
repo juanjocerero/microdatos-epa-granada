@@ -47,22 +47,3 @@ _.forOwn(dataByTrimestre, (data, trimestre) => {
   })
 })
 
-/**
- * Porcentaje de encuestados que no han trabajado en el último año
- */
-console.log('Porcentaje de encuestados que no han trabajado en el último año:')
-const bag = {
-  2007: [], 2008: [], 2009: [], 2010: [], 2011: [], 2012: [], 2013: [], 2014: [], 2015: [], 2016: [], 2017: []
-}
-_.forOwn(dataByYear, (data, year) => {
-  const nt = data.filter(d => d.traant === 6 && d.edad5 > 16 && d.edad5 < 65)
-  console.log(`${year}: ${((nt.length / data.length) * 100).toFixed(2)}%`)
-  const ba = _.groupBy(nt, 'edad5')
-  
-  _.forOwn(ba, (data, edad) => {
-    console.log(`${edad}: ${((data.length / nt.length) * 100).toFixed(2)}%`)
-    bag[year][edad] = ((data.length / nt.length) * 100).toFixed(2)
-  })
-  console.log('------------------------------------------------')
-  //console.table(bag)
-})

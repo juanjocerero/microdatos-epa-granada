@@ -103,3 +103,92 @@ _.forOwn(dataByYear, (data, year) => {
   const fp = data.filter(d => (d.edad5 > 35) && d.nforma2 === 'SP')
   console.log(`${year}: ${((fp.length / m.length) * 100).toFixed(2)}%`)
 })
+
+/**
+ * Porcentaje de encuestados que no han trabajado en el último año
+ */
+console.log('Porcentaje de encuestados que no han trabajado en el último año:')
+const bag = {
+  2007: [], 2008: [], 2009: [], 2010: [], 2011: [], 2012: [], 2013: [], 2014: [], 2015: [], 2016: [], 2017: []
+}
+_.forOwn(dataByYear, (data, year) => {
+  const nt = data.filter(d => d.traant === 6 && d.edad5 > 16 && d.edad5 < 65)
+  console.log(`${year}: ${((nt.length / data.length) * 100).toFixed(2)}%`)
+  const ba = _.groupBy(nt, 'edad5')
+
+  _.forOwn(ba, (data, edad) => {
+    console.log(`${edad}: ${((data.length / nt.length) * 100).toFixed(2)}%`)
+    bag[year][edad] = ((data.length / nt.length) * 100).toFixed(2)
+  })
+  console.log('------------------------------------------------')
+})
+
+_.forOwn(dataByYear, (data, year) => {
+  const an = data.filter(d => d.nforma2 === 'AN' && d.edad5 >= 20 && d.edad5 < 65)
+  const pi = data.filter(d => d.nforma2 === 'P1' && d.edad5 >= 20 && d.edad5 < 65)
+  const pr = data.filter(d => d.nforma2 === 'P2' && d.edad5 >= 20 && d.edad5 < 65)
+  const s = data.filter(d => d.nforma2 === 'S1' && d.edad5 >= 20 && d.edad5 < 65)
+  const sg = data.filter(d => d.nforma2 === 'SG' && d.edad5 >= 20 && d.edad5 < 65)
+  const sp = data.filter(d => d.nforma2 === 'SG' && d.edad5 >= 20 && d.edad5 < 65)
+  const su = data.filter(d => d.nforma2 === 'SU' && d.edad5 >= 20 && d.edad5 < 65)
+  console.log(`
+    ${year}:
+      Analfabetos: ${((an.filter(d => d.trarem === 1).length / an.length) * 100).toFixed(2)}%
+      Primaria Incompleta: ${((pi.filter(d => d.trarem === 1).length / pi.length) * 100).toFixed(2)}%
+      Primaria: ${((pr.filter(d => d.trarem === 1).length / pr.length) * 100).toFixed(2)}%
+      Secundaria 1ª Etapa: ${((s.filter(d => d.trarem === 1).length / s.length) * 100).toFixed(2)}%
+      Secundaria 2ª Etapa: ${((sg.filter(d => d.trarem === 1).length / s.length) * 100).toFixed(2)}%
+      Secundaria + FP: ${((sp.filter(d => d.trarem === 1).length / sp.length) * 100).toFixed(2)}%
+      Universidad+: ${((su.filter(d => d.trarem === 1).length / su.length) * 100).toFixed(2)}%
+  `)
+})
+
+/** Porcentaje de trabajadores que cobran horas extra no remuneradas */
+_.forOwn(dataByYear, (data, year) => {
+  const t = data.filter(d => d.trarem === 1)
+  const e = t.filter(d => d.extra === 1 && d.extpag === 0 || d.extpag === 0)
+  console.log(`${year}: ${((e.length / t.length) * 100).toFixed(2)}%`)
+})
+
+/** Porcentaje de menores de 35 en búsqueda activa de empleo */
+_.forOwn(dataByYear, (data, year) => {
+  const b = data.filter(d => d.edad5 < 35 && d.trarem === 6 && d.busca === 1)
+  const e = data.filter(d => d.edad5 < 35)
+  console.log(`${year}: ${((b.length / e.length) * 100).toFixed(2)}%`)
+})
+
+/** Porcentaje de menores de 35 que trabajan */
+_.forOwn(dataByYear, (data, year) => {
+  const b = data.filter(d => d.edad5 < 35 && d.trarem === 1)
+  const e = data.filter(d => d.edad5 < 35)
+  console.log(`${year}: ${((b.length / e.length) * 100).toFixed(2)}%`)
+})
+
+/** Porcentaje de menores de 35 sobre el total de encuestados */
+_.forOwn(dataByYear, (data, year) => {
+  const e = data.filter(d => d.edad5 < 35)
+  console.log(`${year}: ${((e.length / data.length) * 100).toFixed(2)}%`)
+})
+
+/** ¿Cuánto dura de media la búsqueda de empleo? */
+_.forOwn(dataByYear, (data, year) => {
+  const i = data.filter(d => d.trarem === 6 && d.itbu)
+  const menosUnMes = data.filter(d => d.trarem === 6 && d.itbu === 1)
+  const hastaTresMeses = data.filter(d => d.trarem === 6 && d.itbu === 2)
+  const hastaSeisMeses = data.filter(d => d.trarem === 6 && d.itbu === 3)
+  const hastaUnAño = data.filter(d => d.trarem === 6 && d.itbu === 4)
+  const hastaAñoMedio = data.filter(d => d.trarem === 6 && d.itbu === 5)
+  const hastaDosAños = data.filter(d => d.trarem === 6 && d.itbu === 6)
+  const hastaCuatroAños = data.filter(d => d.trarem === 6 && d.itbu === 7)
+  const masDeCuatroAños = data.filter(d => d.trarem === 6 && d.itbu === 8)
+  console.log(`${year}:
+    menosUnMes: ${((menosUnMes.length / i.length) * 100).toFixed(2)}%
+    hastaTresMeses: ${((hastaTresMeses.length / i.length) * 100).toFixed(2)}%
+    hastaSeisMeses: ${((hastaSeisMeses.length / i.length) * 100).toFixed(2)}%
+    hastaUnAño: ${((hastaUnAño.length / i.length) * 100).toFixed(2)}%
+    hastaAñoMedio: ${((hastaAñoMedio.length / i.length) * 100).toFixed(2)}%
+    hastaDosAños: ${((hastaDosAños.length / i.length) * 100).toFixed(2)}%
+    hastaCuatroAños: ${((hastaCuatroAños.length / i.length) * 100).toFixed(2)}%
+    masDeCuatroAños: ${((masDeCuatroAños.length / i.length) * 100).toFixed(2)}%
+  `)
+})

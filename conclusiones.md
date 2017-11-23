@@ -4,5 +4,11 @@
 
 * El porcentaje de mayores de 40 que tienen estudios secundarios (influencia FP) se duplicó
 
-* Desde la crisis, el grupo de edad de entre 55 y 65 años ha sido expulsado por prejubilaciones y sustituido por menores de 30. Habrá que cruzarlo con los datos de temporalidad para ver si la línea también se traza ahí
+* Desde la crisis, ha aumentado el porcentaje de mayores de 50 que continúan en el mercado laboral
+
+* La Universidad es el único ciclo de estudios (con hipo) que no ha sufrido mermas en su empleabilidad
+
+* La provincia pierde población joven: sube el nivel de los menores de 35 que buscan trabajo, baja el de los que trabajan y baja el porcentaje que representan sobre el total de los encuestados
+
+* Se dispara el porcentaje de personas que llevan más de 4 años buscando trabajo (*2.5) y disminuye el de quienes lo hacen en menos de un año
 
