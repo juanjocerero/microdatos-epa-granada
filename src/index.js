@@ -18,16 +18,13 @@ const parseData = string => csvParse(string, d => {
   return d
 })
 
-/** Comienza el programa */
+/** Preparar el set de datos */
 const rawData = parseData(read('epa.csv'))
 
-/** Ordena por ciclos en orden cronológico. Ciclo === 143 === T1-2007 */
 const dataByCiclo = _.groupBy(_.clone(rawData), 'ciclo')
 
-/** Cambiar ciclos por trimestres */
 const dataByTrimestre = _.mapKeys(_.clone(dataByCiclo), (value, key) => trimestre.add(3, 'months').format('YYYY-qQ'))
 
-/** Añadir año y trimestre a cada registro */
 _.forOwn(dataByTrimestre, (data, trimestre) => {
   data.map(d => {
     d.year = +trimestre.split('-')[0]
@@ -35,7 +32,6 @@ _.forOwn(dataByTrimestre, (data, trimestre) => {
   })
 })
 
-/** Organizar por año */
 const dataByYear = {
   2007: [], 2008: [], 2009: [], 2010: [], 2011: [], 2012: [], 2013: [], 2014: [], 2015: [], 2016: [], 2017: []
 }
@@ -46,16 +42,6 @@ _.forOwn(dataByTrimestre, (data, trimestre) => {
   })
 })
 
-/** Distribución de la temporalidad por grupos de edad */
-let bag = {
-  2007: [], 2008: [], 2009: [], 2010: [], 2011: [], 2012: [], 2013: [], 2014: [], 2015: [], 2016: [], 2017: []
-}
-_.forOwn(dataByYear, (data, year) => {
-  const p = data.filter(d => d.ducon1 === 1 || d.ducon1 === 6)
-  const ba = _.groupBy(p, 'edad5')
-  _.forOwn(ba, (dx, grupoEdad) => {
-    // cuántos de este grupo de edad tienen contratos temporales sobre el total de gente de este grupo de edad
-    bag[year][grupoEdad] = ((dx.filter(d => d.ducon1 === 6).length / dx.length) * 100).toFixed(2)
-  })
-})
-debugger
+/** Operaciones */
+
+

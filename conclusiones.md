@@ -16,5 +16,8 @@
 
 * Ha aumentado un 3.83% el porcentaje de menores de 30 que tienen contratos temporales, aunque la situación ya era bastante mala
 
-* La temporalidad afecta especialmente a los menores de 30. Sumado al hecho de que los nuevos contratos que se firman son 90+% temporales, se infiere que la precaridad se ceba sobre todo con este grupo.
+* La temporalidad afecta especialmente a los menores de 30. Sumado al hecho de que los nuevos contratos que se firman son 90+% temporales, se infiere que la precaridad se ceba sobre todo con este grupo
 
+* El tipo de contrato más común es de seis meses
+
+* El número de personas que tienen contratos de un mes o menos y que trabajan 7 días o menos ha crecido un 295%, casi se triplica, pasando del 9.55% al 28.21%. Uno de cada tres contratos de menos de un mes de una semana o menos

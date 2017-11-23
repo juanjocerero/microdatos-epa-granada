@@ -219,3 +219,34 @@ _.forOwn(dataByYear, (data, year) => {
   const b = _.intersection(p, data.filter(d => d.ducon1 === 6))
   console.log(`${year}: ${((b.length / p.length) * 100).toFixed(2)}%`)
 })
+
+/** Distribución de la temporalidad por grupos de edad */
+let bag = {
+  2007: [], 2008: [], 2009: [], 2010: [], 2011: [], 2012: [], 2013: [], 2014: [], 2015: [], 2016: [], 2017: []
+}
+_.forOwn(dataByYear, (data, year) => {
+  const p = data.filter(d => d.ducon1 === 1 || d.ducon1 === 6)
+  const ba = _.groupBy(p, 'edad5')
+  _.forOwn(ba, (dx, grupoEdad) => {
+    // cuántos de este grupo de edad tienen contratos temporales sobre el total de gente de este grupo de edad
+    bag[year][grupoEdad] = ((dx.filter(d => d.ducon1 === 6).length / dx.length) * 100).toFixed(2)
+  })
+})
+
+/** Nº de días trabajados en los contratos de un mes */
+_.forOwn(dataByYear, (data, year) => {
+  const p = data.filter(d => d.tcontd && d.tcontd !== 0 && d.tcontd !== 99)
+  console.log(`${year}: ${mean(p.map(v => v.tcontd)).toFixed(2)} días`)
+})
+
+/** Duración media de los contratos de más de un mes */
+_.forOwn(dataByYear, (data, year) => {
+  const p = data.filter(d => d.tcontm && d.tcontm !== 96 && d.tcontm !== 0)
+  console.log(`${year}: ${(median(p.map(v => v.tcontm)) * 30).toFixed(2)} días`)
+})
+
+/** Cuánta gente que tiene contrato de menos de un mes tiene contrato de 7 días o menos */
+_.forOwn(dataByYear, (data, year) => {
+  const p = data.filter(d => d.tcontd)
+  console.log(`${year}: ${((p.filter(v => v.tcontd <= 7).length / p.length) * 100).toFixed(2)}%`)
+})
