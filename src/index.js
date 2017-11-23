@@ -44,4 +44,3 @@ _.forOwn(dataByTrimestre, (data, trimestre) => {
 
 /** Operaciones */
 
-

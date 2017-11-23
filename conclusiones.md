@@ -21,3 +21,7 @@
 * El tipo de contrato más común es de seis meses
 
 * El número de personas que tienen contratos de un mes o menos y que trabajan 7 días o menos ha crecido un 295%, casi se triplica, pasando del 9.55% al 28.21%. Uno de cada tres contratos de menos de un mes de una semana o menos
+
+* El porcentaje de jóvenes (entre 25 y 35) que trabaja se ha reducido en 10 puntos porcentuales absolutos o un 14,8% en términos relativos: del 63,03% al 53,68%
+
+* Envejecimiento del mercado laboral (gdrive)

@@ -250,3 +250,30 @@ _.forOwn(dataByYear, (data, year) => {
   const p = data.filter(d => d.tcontd)
   console.log(`${year}: ${((p.filter(v => v.tcontd <= 7).length / p.length) * 100).toFixed(2)}%`)
 })
+
+/** Entre 25 y 35 que han realizado trabajo remunerado en la última semana */
+_.forOwn(dataByYear, (data, year) => {
+  const p = data.filter(d => d.edad5 >= 25 && d.edad5 < 35 && d.trarem)
+  console.log(`${year}: ${((p.filter(v => v.trarem === 1).length / p.length) * 100).toFixed(2)}%`)
+})
+
+/** Población por grupos de edad */
+let bag = {
+  2007: [], 2008: [], 2009: [], 2010: [], 2011: [], 2012: [], 2013: [], 2014: [], 2015: [], 2016: [], 2017: []
+}
+
+_.forOwn(dataByYear, (data, year) => {
+  const ba = _.groupBy(data, 'edad5')
+  _.forOwn(ba, (dx, grupoEdad) => {
+    bag[year][grupoEdad] = ((dx.length / data.length) * 100).toFixed(2)
+  })
+})
+
+/** Porcentaje de gente que cursa algún tipo de estudio */
+_.forOwn(dataByYear, (data, year) => {
+  const p = data
+  const r = p.filter(v => v.cursr === 1)
+  const nr = p.filter(v => v.cursnr === 1)
+  const ronr = p.filter(v => v.cursr === 1 || v.cursnr === 1)
+  console.log(`${year}: ${((ronr.length / p.length) * 100).toFixed(2)}%`)
+})
