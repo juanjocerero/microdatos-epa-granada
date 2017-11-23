@@ -12,3 +12,9 @@
 
 * Se dispara el porcentaje de personas que llevan más de 4 años buscando trabajo (*2.5) y disminuye el de quienes lo hacen en menos de un año
 
+* Ha subido un 6% (11.38% -> 17.04%) el porcentaje de quienes tienen jornada parcial
+
+* Ha aumentado un 3.83% el porcentaje de menores de 30 que tienen contratos temporales, aunque la situación ya era bastante mala
+
+* La temporalidad afecta especialmente a los menores de 30. Sumado al hecho de que los nuevos contratos que se firman son 90+% temporales, se infiere que la precaridad se ceba sobre todo con este grupo.
+

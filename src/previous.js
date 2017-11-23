@@ -192,3 +192,30 @@ _.forOwn(dataByYear, (data, year) => {
     masDeCuatroAños: ${((masDeCuatroAños.length / i.length) * 100).toFixed(2)}%
   `)
 })
+
+/** Distribución de las razones por las que no se busca empleo */
+_.forOwn(dataByYear, (data, year) => {
+  const p = data.filter(d => d.edad5 > 35 && d.edad5 < 55 && d.trarem === 6)
+  const nb = data.filter(d => d.edad5 > 35 && d.edad5 < 55 && d.trarem === 6 && d.nbusca === 1)
+  console.log(`${year}: ${((nb.length / p.length) * 100).toFixed(2)}%`)
+})
+
+/** Gente que tiene empleo pero busca otro o quiere irse por su cuenta */
+_.forOwn(dataByYear, (data, year) => {
+  const p = data.filter(d => d.edad5 > 20 && d.edad5 < 65 && d.trarem === 1)
+  const b = data.filter(d => d.edad5 > 20 && d.edad5 < 65 && d.trarem === 1 && d.busotr === 1)
+  console.log(`${year}: ${((b.length / p.length) * 100).toFixed(2)}%`)
+})
+
+/** Porcentaje de trabajadores que tienen jornada parcial */
+_.forOwn(dataByYear, (data, year) => {
+  const p = data.filter(d => d.parco1 === 6)
+  console.log(`${year}: ${((p.length / data.filter(d => d.parco1 === 1 || d.parco1 === 6).length) * 100).toFixed(2)}%`)
+})
+
+/** Porcentaje de menores de 30 que tienen contratos temporales */
+_.forOwn(dataByYear, (data, year) => {
+  const p = data.filter(d => (d.ducon1 === 1 || d.ducon1 === 6) && d.edad5 < 30)
+  const b = _.intersection(p, data.filter(d => d.ducon1 === 6))
+  console.log(`${year}: ${((b.length / p.length) * 100).toFixed(2)}%`)
+})
