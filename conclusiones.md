@@ -24,4 +24,11 @@
 
 * El porcentaje de jóvenes (entre 25 y 35) que trabaja se ha reducido en 10 puntos porcentuales absolutos o un 14,8% en términos relativos: del 63,03% al 53,68%
 
-* Envejecimiento del mercado laboral (gdrive)
+* Envejecimiento del mercado laboral. La edad media sube de manera significativa (gdrive)
+
+* Por actividad y grupos de edad:
+  ** Crecimiento de la ocupación de jóvenes en agricultura
+  ** La hostelería / servicios se consolida como casi única opción de trabajo para menores de 30. Por el contrario, el empleo en ese sector baja para los mayores de 35
+  ** La mayoría de la gente que no está en trabajos relacionados con la administración pública o las finanzas / servicios de oficina sale del mercado como muy tarde a los 60 años
+  ** A mayor edad del encuestado, mayor prevalencia del mantenimiento del empleo en administración pública, educación y sanidad (funcionariado en general). La tendencia se ha incrementado con los años (lo único de la estabilidad que sobrevive)
+
