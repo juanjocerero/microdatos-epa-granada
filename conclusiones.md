@@ -32,4 +32,5 @@
   ** La mayoría de la gente que no está en trabajos relacionados con la administración pública o las finanzas / servicios de oficina sale del mercado como muy tarde a los 60 años
   ** A mayor edad del encuestado, mayor prevalencia del mantenimiento del empleo en administración pública, educación y sanidad (funcionariado en general). La tendencia se ha incrementado con los años (lo único de la estabilidad que sobrevive)
 
-* Uno de cada 3 empleos de menores de 35 años es en hostelería y servicios
+* Uno de cada 3 empleos de menores de 35 años es en hostelería y servicios. El empleo asociado al sector de la comunicación y videojuegos, el transporte y la extracción de algunos recursos naturales aumenta +73% entre los menores de 35
+
