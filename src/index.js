@@ -43,4 +43,16 @@ _.forOwn(dataByTrimestre, (data, trimestre) => {
 })
 
 /** Operaciones */
+/** A qué se han dedicado los menores de 35 */
+let bag = {
+  2007: [], 2008: [], 2009: [], 2010: [], 2011: [], 2012: [], 2013: [], 2014: [], 2015: [], 2016: [], 2017: []
+}
+_.forOwn(dataByYear, (data, trimestre) => {
+  const p = data.filter(v => v.edad5 < 35 && v.act11 !== null)
+  const g = _.groupBy(p, 'act11')
+  _.forOwn(g, (dx, act) => {
+    bag[trimestre][act] = ((dx.length / p.length) * 100).toFixed(2)
+  })
+})
 
+debugger
