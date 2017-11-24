@@ -44,12 +44,3 @@ _.forOwn(dataByTrimestre, (data, trimestre) => {
 
 /** Operaciones */
 
-/** Actividad (act11) por grupos de edad y año */
-const x = dataByYear[2017]
-const bag = _.groupBy(x, 'edad5')
-_.forOwn(bag, (data, grupoEdad) => {
-  const act = _.groupBy(data.filter(d => d.act11 !== null), 'act11')
-  _.forOwn(act, (dx, act) => {
-    console.log(`${grupoEdad} | ${act}: ${((dx.length / data.filter(d => d.act11 !== null).length) * 100).toFixed(2)}%`)
-  })
-})

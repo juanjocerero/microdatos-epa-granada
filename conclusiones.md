@@ -31,4 +31,3 @@
   ** La hostelería / servicios se consolida como casi única opción de trabajo para menores de 30. Por el contrario, el empleo en ese sector baja para los mayores de 35
   ** La mayoría de la gente que no está en trabajos relacionados con la administración pública o las finanzas / servicios de oficina sale del mercado como muy tarde a los 60 años
   ** A mayor edad del encuestado, mayor prevalencia del mantenimiento del empleo en administración pública, educación y sanidad (funcionariado en general). La tendencia se ha incrementado con los años (lo único de la estabilidad que sobrevive)
-

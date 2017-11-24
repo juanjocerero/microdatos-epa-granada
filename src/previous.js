@@ -277,3 +277,13 @@ _.forOwn(dataByYear, (data, year) => {
   const ronr = p.filter(v => v.cursr === 1 || v.cursnr === 1)
   console.log(`${year}: ${((ronr.length / p.length) * 100).toFixed(2)}%`)
 })
+
+/** Actividad (act11) por grupos de edad y año */
+const x = dataByYear[2017] // cambiar
+const bag = _.groupBy(x, 'edad5')
+_.forOwn(bag, (data, grupoEdad) => {
+  const act = _.groupBy(data.filter(d => d.act11 !== null), 'act11')
+  _.forOwn(act, (dx, act) => {
+    console.log(`${grupoEdad} | ${act}: ${((dx.length / data.filter(d => d.act11 !== null).length) * 100).toFixed(2)}%`)
+  })
+})
