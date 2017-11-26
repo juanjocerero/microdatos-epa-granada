@@ -287,3 +287,42 @@ _.forOwn(bag, (data, grupoEdad) => {
     console.log(`${grupoEdad} | ${act}: ${((dx.length / data.filter(d => d.act11 !== null).length) * 100).toFixed(2)}%`)
   })
 })
+
+/** A qué se han dedicado los menores de 35 */
+let bag = {
+  2007: [], 2008: [], 2009: [], 2010: [], 2011: [], 2012: [], 2013: [], 2014: [], 2015: [], 2016: [], 2017: []
+}
+_.forOwn(dataByYear, (data, trimestre) => {
+  const p = data.filter(v => v.edad5 < 35 && v.act11 !== null)
+  const g = _.groupBy(p, 'act11')
+  _.forOwn(g, (dx, act) => {
+    bag[trimestre][act] = ((dx.length / p.length) * 100).toFixed(2)
+  })
+})
+
+/** Edad media de la gente que se dedica a la agricultura */
+let bag = {
+  2007: [], 2008: [], 2009: [], 2010: [], 2011: [], 2012: [], 2013: [], 2014: [], 2015: [], 2016: [], 2017: []
+}
+_.forOwn(dataByYear, (data, year) => {
+  const p = data.filter(v => v.act11 !== null && v.act11 === 0)
+  const b = _.groupBy(p, 'edad5')
+  _.forOwn(b, (dx, grupoEdad) => {
+    bag[year][grupoEdad] = ((dx.length / p.length) * 100).toFixed(2)
+  })
+})
+
+/** Porcentaje de agricultores con formación secundaria o superior 
+ * SG, SP o SU || SP o SU
+*/
+_.forOwn(dataByYear, (data, year) => {
+  const p = data.filter(v => v.nforma2 !== null && v.act11 !== null && v.act11 === 0)
+  const sg = p.filter(v => v.nforma2 === 'SG')
+  const sp = p.filter(v => v.nforma2 === 'SP')
+  const su = p.filter(v => v.nforma2 === 'SU')
+  console.log(`${year}:
+    sg: ${((sg.length / p.length) * 100).toFixed(2)}
+    sp: ${((sp.length / p.length) * 100).toFixed(2)}
+    su: ${((su.length / p.length) * 100).toFixed(2)}
+    t: ${(((sg.length + sp.length + su.length) / p.length) * 100).toFixed(2)}`)
+})
