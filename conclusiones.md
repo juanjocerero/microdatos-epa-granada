@@ -34,3 +34,6 @@
 
 * Uno de cada 3 empleos de menores de 35 años es en hostelería y servicios. El empleo asociado al sector de la comunicación y videojuegos, el transporte y la extracción de algunos recursos naturales aumenta +73% entre los menores de 35
 
+* Aumenta de manera significativa el número de jóvenes o primera madurez (entre 30 y 45) que se han ido (o vuelto) a las labores agrícolas. Hizo pico en 2011, cuando los menores de 45 llegaron a ser el 60% de los encuestados que se dedicaban a labores agrícolas. En 2017 son más de la mitad (52%)
+
+* El número de agricultores con estudios secundarios o superiores casi se duplica: pasa del 12.6% en 2007 hasta el 21.45% en 2017
