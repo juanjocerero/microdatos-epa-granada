@@ -43,16 +43,3 @@ _.forOwn(dataByTrimestre, (data, trimestre) => {
 })
 
 /** Operaciones */
-/** Relación con la actividad de los entrevistados entre 40 y 60 años **/
-_.forOwn(dataByYear, (data, year) => {
-  const p = data.filter(v => v.aoi !== null && v.aoi && v.aoi !== '' && v.edad5 >= 50 && v.edad5 < 65)
-  const sub = p.filter(v => v.aoi === 3)
-  const pri = p.filter(v => v.aoi === 5)
-  const des = p.filter(v => v.aoi === 7)
-  console.log(`
-    ${year}:
-      subempleados: ${sub.length} (${((sub.length / p.length) * 100).toFixed(2)}%)
-      parado primer empleo: ${pri.length} (${((pri.length / p.length) * 100).toFixed(2)}%)
-      desanimados: ${des.length} (${((des.length / p.length) * 100).toFixed(2)}%)
-  `)
-})
