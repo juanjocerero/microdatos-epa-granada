@@ -43,62 +43,10 @@ _.forOwn(dataByTrimestre, (data, trimestre) => {
 })
 
 /** Operaciones */
-const actSwitch = act => {
-  console.log('a', act, typeof act)
-  switch (act) {
-    case '0':
-      return 'agric'
-      break
-    case '1':
-      return 'ind-alim'
-      break
-    case '2':
-      return 'ind-ext'
-      break
-    case '3':
-      return 'maq'
-      break
-    case '4':
-      return 'const'
-      break
-    case '5':
-      return 'serv'
-      break
-    case '6':
-      return 'tra/com'
-      break
-    case '7':
-      return 'fin/inm'
-      break
-    case '8':
-      return 'admon'
-      break
-    case '9':
-      return 'otr'
-      break
-    default:
-      break
-  }
-}
-let bag = {
-  2007: [],
-  2008: [],
-  2009: [],
-  2010: [],
-  2011: [],
-  2012: [],
-  2013: [],
-  2014: [],
-  2015: [],
-  2016: [],
-  2017: []
-}
-_.forOwn(dataByYear, (data, year) => {
-  const w = data.filter(v => v.trarem && v.trarem === 1)
-  const b = _.groupBy(w, 'act11')
-  _.forOwn(b, (data, act) => {
-    bag[year][actSwitch(act)] = (data.length / w.length * 100).toFixed(1)
-  })
-})
 
-debugger
+_.forOwn(dataByYear, (data, year) => {
+  const a = data.filter(v => v.edad5 < 40)
+  const b = data.filter(v => v.edad5 < 40 && (v.act11 === 0 || v.act11 === 1))
+  const c = data.filter(v => v.edad5 < 40 && (v.nforma2 === 'SU' || v.nforma2 === 'SP') && (v.act11 === 0 || v.act11 === 1))
+  console.log(`${((c.length / b.length)*100).toFixed(1)}%`)
+})

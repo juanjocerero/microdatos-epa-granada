@@ -358,3 +358,61 @@ _.forOwn(bnv, (data, nvivi) => {
   }
 })
 console.log(c)
+
+/**  */
+const actSwitch = act => {
+  switch (act) {
+    case '0':
+      return 'agric'
+      break
+    case '1':
+      return 'ind-alim'
+      break
+    case '2':
+      return 'ind-ext'
+      break
+    case '3':
+      return 'maq'
+      break
+    case '4':
+      return 'const'
+      break
+    case '5':
+      return 'serv'
+      break
+    case '6':
+      return 'tra/com'
+      break
+    case '7':
+      return 'fin/inm'
+      break
+    case '8':
+      return 'admon'
+      break
+    case '9':
+      return 'otr'
+      break
+    default:
+      break
+  }
+}
+let bag = {
+  2007: [],
+  2008: [],
+  2009: [],
+  2010: [],
+  2011: [],
+  2012: [],
+  2013: [],
+  2014: [],
+  2015: [],
+  2016: [],
+  2017: []
+}
+_.forOwn(dataByYear, (data, year) => {
+  const w = data.filter(v => v.trarem && v.trarem === 1)
+  const b = _.groupBy(w, 'act11')
+  _.forOwn(b, (data, act) => {
+    bag[year][actSwitch(act)] = (data.length / w.length * 100).toFixed(1)
+  })
+})
